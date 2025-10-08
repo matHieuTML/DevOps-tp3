@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS testdb;
+USE testdb;
+
+CREATE TABLE IF NOT EXISTS compteur (
+    id INT PRIMARY KEY DEFAULT 1,
+    valeur INT NOT NULL DEFAULT 0
+);
+
+INSERT INTO compteur (id, valeur) VALUES (1, 0);
+
+CREATE USER IF NOT EXISTS 'user'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON testdb.* TO 'user'@'%';
+FLUSH PRIVILEGES;
